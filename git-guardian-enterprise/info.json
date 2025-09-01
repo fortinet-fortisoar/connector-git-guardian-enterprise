@@ -1,0 +1,1244 @@
+{
+  "name": "git-guardian-enterprise",
+  "label": "GitGuardian Enterprise",
+  "version": "1.0.0",
+  "category": "Vulnerability and Risk Management",
+  "description": "GitGuardian Enterprise is a security platform designed to detect, monitor, and remediate secrets (like API keys, passwords, and tokens) and sensitive data exposed in source code, CI/CD pipelines, containers, and developer environments.",
+  "cs_approved": false,
+  "cs_compatible": true,
+  "contributor": "",
+  "publisher": "Fortinet",
+  "icon_small_name": "small.jpg",
+  "icon_large_name": "large.jpg",
+  "help_online": "",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "name": "server_url",
+        "type": "text",
+        "description": "Specify the server URL of the GitGuardian Enterprise server to connect and perform automated operations.",
+        "tooltip": "Specify the server URL of the GitGuardian Enterprise server to connect and perform automated operations.",
+        "required": true,
+        "visible": true,
+        "editable": true,
+        "value": "https://enterprise.gitguardian.com"
+      },
+      {
+        "title": "API Key",
+        "name": "api_key",
+        "type": "password",
+        "tooltip": "Specify the API Key to connect to the endpoint and perform automated operations.",
+        "description": "Specify the API Key to connect to the endpoint and perform automated operations.",
+        "required": true,
+        "visible": true,
+        "editable": true
+      },
+      {
+        "title": "Verify SSL",
+        "name": "verify_ssl",
+        "type": "checkbox",
+        "description": "Specifies whether the SSL certificate for the server is to be verified. By default, this option is selected, i.e., set to true",
+        "tooltip": "Specifies whether the SSL certificate for the server is to be verified. By default, this option is selected, i.e., set to true",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "value": true
+      }
+    ]
+  },
+  "operations": [
+    {
+      "title": "Get All Audit Logs",
+      "operation": "get_all_audit_logs",
+      "description": "Retrieve a list of audit logs from the GitGuardian Enterprise server using the specified filter parameters.",
+      "category": "investigation",
+      "annotation": "get_all_audit_logs",
+      "parameters": [
+        {
+          "title": "Include Actor(s)",
+          "name": "actor__in",
+          "type": "text",
+          "description": "Filter results to include only logs performed by specific actor usernames.",
+          "tooltip": "Comma-separated list of usernames to include as actors in the audit log results.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "Exclude Actor(s)",
+          "name": "actor__nin",
+          "type": "text",
+          "description": "Exclude audit logs performed by specified actor usernames.",
+          "tooltip": "Comma-separated list of usernames to exclude from the audit log results.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "Actor Email",
+          "name": "actor_email",
+          "type": "text",
+          "description": "Filter logs based on the email address of the actor who performed the action.",
+          "tooltip": "Exact match filter for the actor's email address.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "Ordering",
+          "name": "ordering",
+          "type": "text",
+          "description": "Specify how results should be ordered, such as by timestamp or actor name.",
+          "tooltip": "Specify how results should be ordered, such as by timestamp or actor name.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "Full-Text Search",
+          "name": "search",
+          "type": "text",
+          "description": "Full-text search across multiple fields of the audit logs.",
+          "tooltip": "Enter keywords to search audit log entries.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "Type",
+          "name": "type",
+          "type": "text",
+          "description": "Filter audit logs by a specific event type.",
+          "tooltip": "Specify a single event type, e.g., 'login.success' or 'organization.user_invite'.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "Include Types",
+          "name": "type__in",
+          "type": "text",
+          "description": "Include logs of multiple event types.",
+          "tooltip": "Comma-separated list of event types to include in results.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "Exclude Types",
+          "name": "type__nin",
+          "type": "text",
+          "description": "Exclude logs of specific event types.",
+          "tooltip": "Comma-separated list of event types to exclude from results.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "Page Number",
+          "description": "Specify the page number from which to retrieve audit log results when pagination is used. Default is 0.",
+          "type": "integer",
+          "name": "page",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Used for pagination: page number to retrieve. Default is 0.",
+          "value": 0
+        },
+        {
+          "title": "Results Per Page",
+          "description": "Number of results to return per page when pagination is applied.",
+          "type": "integer",
+          "name": "per_page",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "How many results to include per page. Default varies by API."
+        }
+      ],
+      "output_schema": {},
+      "enabled": true
+    },
+    {
+      "title": "Get Audit Log Details",
+      "operation": "get_audit_log_details",
+      "description": "Retrieve specific audit log details from the GitGuardian Enterprise server using the provided audit log ID.",
+      "category": "investigation",
+      "annotation": "get_audit_log_details",
+      "parameters": [
+        {
+          "title": "Audit Log ID",
+          "name": "id",
+          "type": "text",
+          "description": "Specify the audit log ID to retrieve its details from the GitGuardian Enterprise server. You can obtain the Audit Log ID from the response of the \"Get All Audit Logs\" action.",
+          "tooltip": "Specify the audit log ID to retrieve its details from the GitGuardian Enterprise server. You can obtain the Audit Log ID from the response of the \"Get All Audit Logs\" action.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        }
+      ],
+      "output_schema": {},
+      "enabled": true
+    },
+    {
+      "title": "Get Audit Log Actors/Types",
+      "operation": "get_audit_log_actors_types",
+      "description": "Retrieve a list of audit log actors or types from the GitGuardian Enterprise server based on the audit log metadata and other filter parameter you have specified.",
+      "category": "investigation",
+      "annotation": "get_audit_log_actors_types",
+      "parameters": [
+        {
+          "title": "Audit Log Metadata",
+          "name": "audit_log_metadata",
+          "type": "select",
+          "description": "Select the audit log metadata to retrieve its details from the GitGuardian Enterprise server. \"Audit Log Actors\" retrieve a list of members whose actions have generated audit log entries. \"Audit Log Types\" retrieve a list of available audit log types.",
+          "tooltip": "Select the audit log metadata to retrieve its details from the GitGuardian Enterprise server. \"Audit Log Actors\" retrieve a list of members whose actions have generated audit log entries. \"Audit Log Types\" retrieve a list of available audit log types.",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "options": [
+            "Audit Log Actors",
+            "Audit Log Types"
+          ],
+          "value": "Audit Log Actors"
+        },
+        {
+          "title": "Page Number",
+          "description": "Specify the page number from which to retrieve audit log actors/types results when pagination is used. Default is 0.",
+          "type": "integer",
+          "name": "page",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Used for pagination: page number to retrieve. Default is 0.",
+          "value": 0
+        },
+        {
+          "title": "Results Per Page",
+          "description": "Number of results to return per page when pagination is applied.",
+          "type": "integer",
+          "name": "per_page",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "How many results to include per page. Default varies by API."
+        }
+      ],
+      "output_schema": {},
+      "enabled": true
+    },
+    {
+      "title": "Get All Git Users",
+      "operation": "get_all_git_users",
+      "description": "Retrieve a list of git users from the GitGuardian Enterprise server based on the git type and other filter parameters you have specified.",
+      "category": "investigation",
+      "annotation": "get_all_git_users",
+      "parameters": [
+        {
+          "title": "Git Type",
+          "name": "git_type",
+          "type": "select",
+          "description": "Select the type of Git platform to retrieve a users. You can choose from the following options: GIT Users or GITHub Users.",
+          "tooltip": "Select the type of Git platform to retrieve a users. You can choose from the following options: GIT Users or GITHub Users.",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "options": [
+            "GIT Users",
+            "GITHub Users"
+          ],
+          "value": "GIT Users"
+        },
+        {
+          "title": "Page Number",
+          "description": "Specify the page number from which to retrieve git users results when pagination is used. Default is 0.",
+          "type": "integer",
+          "name": "page",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Used for pagination: page number to retrieve. Default is 0.",
+          "value": 0
+        },
+        {
+          "title": "Results Per Page",
+          "description": "Number of results to return per page when pagination is applied.",
+          "type": "integer",
+          "name": "per_page",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "How many results to include per page. Default varies by API."
+        }
+      ],
+      "output_schema": {},
+      "enabled": true
+    },
+    {
+      "title": "Get Git User Details",
+      "operation": "get_git_user_details",
+      "description": "Retrieve specific git user details from the GitGuardian Enterprise server based on the git type and it's ID specified.",
+      "category": "investigation",
+      "annotation": "get_git_user_details",
+      "parameters": [
+        {
+          "title": "Git Type",
+          "name": "git_type",
+          "type": "select",
+          "description": "Select the type of Git platform to retrieve a users. You can choose from the following options: GIT Users or GITHub Users.",
+          "tooltip": "Select the type of Git platform to retrieve a users. You can choose from the following options: GIT Users or GITHub Users.",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "options": [
+            "GIT Users",
+            "GITHub Users"
+          ],
+          "value": "GIT Users",
+          "onchange": {
+            "GIT Users": [
+              {
+                "title": "GIT User ID",
+                "name": "id",
+                "type": "text",
+                "description": "Specify the GIT user ID to retrieve its details from the GitGuardian Enterprise server. You can obtain the GIT User ID from the response of the \"Get All Git Users\" action.",
+                "tooltip": "Specify the GIT user ID to retrieve its details from the GitGuardian Enterprise server. You can obtain the GIT User ID from the response of the \"Get All Git Users\" action.",
+                "visible": true,
+                "editable": true,
+                "required": true
+              }
+            ],
+            "GITHub Users": [
+              {
+                "title": "GITHub User ID",
+                "name": "id",
+                "type": "text",
+                "description": "Specify the GITHub user ID to retrieve its details from the GitGuardian Enterprise server. You can obtain the GITHub User ID from the response of the \"Get All Git Users\" action.",
+                "tooltip": "Specify the GITHub user ID to retrieve its details from the GitGuardian Enterprise server. You can obtain the GITHub User ID from the response of the \"Get All Git Users\" action.",
+                "visible": true,
+                "editable": true,
+                "required": true
+              }
+            ]
+          }
+        }
+      ],
+      "output_schema": {},
+      "enabled": true
+    },
+    {
+      "title": "Create Keyword",
+      "operation": "create_keyword",
+      "description": "Creates a new keyword in the GitGuardian Enterprise server, it will be in PENDING state until GitGuardian approves or refuses the keyword.",
+      "category": "investigation",
+      "annotation": "create_keyword",
+      "parameters": [
+        {
+          "title": "Keyword ID",
+          "name": "id",
+          "type": "integer",
+          "description": "Specify the keyword ID based on which you want to create a keyword.",
+          "tooltip": "Specify the keyword ID based on which you want to create a keyword.",
+          "visible": true,
+          "editable": true,
+          "required": true
+        },
+        {
+          "title": "Keyword Name",
+          "name": "name",
+          "type": "text",
+          "description": "Specify the keyword name based on which you want to create a keyword.",
+          "tooltip": "Specify the keyword name based on which you want to create a keyword.",
+          "visible": true,
+          "editable": true,
+          "required": true
+        },
+        {
+          "title": "Keyword",
+          "name": "keyword",
+          "type": "text",
+          "description": "Specify the keyword based on which you want to create a keyword.",
+          "tooltip": "Specify the keyword based on which you want to create a keyword.",
+          "visible": true,
+          "editable": true,
+          "required": true
+        },
+        {
+          "title": "Categories",
+          "name": "categories",
+          "type": "multiselect",
+          "description": "Select one or more options of categories based on which you want to create a keyword. You can choose one or more from the following options: Secret Grasper, Incident Raiser, or Incident Raiser On Perimeter.",
+          "tooltip": "Select one or more options of categories based on which you want to create a keyword. You can choose one or more from the following options: Secret Grasper, Incident Raiser, or Incident Raiser On Perimeter.",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "options": [
+            "Secret Grasper",
+            "Incident Raiser",
+            "Incident Raiser On Perimeter"
+          ]
+        },
+        {
+          "title": "Status",
+          "name": "status",
+          "type": "select",
+          "description": "Select the status based on which you want to create a keyword. You can choose from the following options: Pending, Active, or Deactivated.",
+          "tooltip": "Select the status based on which you want to create a keyword. You can choose from the following options: Pending, Active, or Deactivated.",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "options": [
+            "Pending",
+            "Active",
+            "Deactivated"
+          ]
+        },
+        {
+          "title": "Keyword Type",
+          "name": "type",
+          "type": "select",
+          "description": "Select the type of the keyword based on which you want to create a keyword. You can choose from the following options: Raw or Regexp",
+          "tooltip": "Select the type of the keyword based on which you want to create a keyword. You can choose from the following options: Raw or Regexp",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "options": [
+            "Raw",
+            "Regexp"
+          ]
+        },
+        {
+          "title": "Labels",
+          "name": "labels",
+          "type": "text",
+          "description": "Specify the comma-separated list of integer labels based on which you want to create a keyword.",
+          "tooltip": "Specify the comma-separated list of integer labels based on which you want to create a keyword.",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "placeholder": "For Ex: 0,1,2 etc"
+        },
+        {
+          "title": "Created At",
+          "name": "created_at",
+          "type": "datetime",
+          "description": "Select a date and time to retrieve results that include only those items that were created after the specified timestamp.",
+          "tooltip": "Select a date and time to retrieve results that include only those items that were created after the specified timestamp.",
+          "visible": true,
+          "editable": true,
+          "required": true
+        }
+      ],
+      "output_schema": {},
+      "enabled": true
+    },
+    {
+      "title": "Get All Keywords",
+      "operation": "get_all_keywords",
+      "description": "Retrieve a list of keywords from the GitGuardian Enterprise server using the specified filter parameters.",
+      "category": "investigation",
+      "annotation": "get_all_keywords",
+      "parameters": [
+        {
+          "title": "Keyword Type",
+          "name": "keyword_type",
+          "type": "select",
+          "description": "Select the type of keyword to retrieve a details. You can choose from the following options: Incident Raiser or Secret Grasper.",
+          "tooltip": "Select the type of Git platform to retrieve a users. You can choose from the following options: Incident Raiser or Secret Grasper.",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "options": [
+            "Incident Raiser",
+            "Secret Grasper"
+          ]
+        },
+        {
+          "title": "Categories",
+          "name": "categories",
+          "type": "select",
+          "description": "Select the category based on which you want to retrieve a keywords. You can choose from the following options: Secret Grasper, Incident Raiser, or Incident Raiser On Perimeter.",
+          "tooltip": "Select the category based on which you want to retrieve a keywords. You can choose from the following options: Secret Grasper, Incident Raiser, or Incident Raiser On Perimeter.",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "options": [
+            "Secret Grasper",
+            "Incident Raiser",
+            "Incident Raiser On Perimeter"
+          ]
+        },
+        {
+          "title": "Status",
+          "name": "status",
+          "type": "select",
+          "description": "Select the status based on which you want to retrieve a keywords. You can choose from the following options: Pending, Active, or Deactivated.",
+          "tooltip": "Select the status based on which you want to retrieve a keywords. You can choose from the following options: Pending, Active, or Deactivated.",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "options": [
+            "Pending",
+            "Active",
+            "Deactivated"
+          ]
+        },
+        {
+          "title": "Keyword Type",
+          "name": "type",
+          "type": "select",
+          "description": "Select the type of the keyword based on which you want to retrieve a keywords. You can choose from the following options: Raw or Regexp",
+          "tooltip": "Select the type of the keyword based on which you want to retrieve a keywords. You can choose from the following options: Raw or Regexp",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "options": [
+            "Raw",
+            "Regexp"
+          ]
+        },
+        {
+          "title": "Ordering",
+          "name": "ordering",
+          "type": "text",
+          "description": "Specify how results should be ordered, such as by name or status.",
+          "tooltip": "Specify how results should be ordered, such as by name or status.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "Full-Text Search",
+          "name": "search",
+          "type": "text",
+          "description": "Full-text search across multiple fields of the keywords.",
+          "tooltip": "Enter keywords to search keywords entries.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "Include Labels",
+          "name": "labels__in",
+          "type": "text",
+          "description": "Include keywords of multiple labels.",
+          "tooltip": "Comma-separated list of keyword labels to include in results.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "Exclude Labels",
+          "name": "labels__nin",
+          "type": "text",
+          "description": "Exclude keywords of multiple labels",
+          "tooltip": "Comma-separated list of keyword labels to exclude from results.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "Include Status",
+          "name": "status__in",
+          "type": "text",
+          "description": "Include keywords of multiple status.",
+          "tooltip": "Comma-separated list of keyword status to include in results.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "Exclude Status",
+          "name": "status__nin",
+          "type": "text",
+          "description": "Exclude keywords of multiple status",
+          "tooltip": "Comma-separated list of keyword status to exclude from results.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "Include Types",
+          "name": "type__in",
+          "type": "text",
+          "description": "Include logs of multiple event types.",
+          "tooltip": "Comma-separated list of event types to include in results.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "Exclude Types",
+          "name": "type__nin",
+          "type": "text",
+          "description": "Exclude logs of multiple event types.",
+          "tooltip": "Comma-separated list of event types to exclude from results.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "Page Number",
+          "description": "Specify the page number from which to retrieve keywords results when pagination is used. Default is 0.",
+          "type": "integer",
+          "name": "page",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Used for pagination: page number to retrieve. Default is 0.",
+          "value": 0
+        },
+        {
+          "title": "Results Per Page",
+          "description": "Number of results to return per page when pagination is applied.",
+          "type": "integer",
+          "name": "per_page",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "How many results to include per page. Default varies by API."
+        }
+      ],
+      "output_schema": {},
+      "enabled": true
+    },
+    {
+      "title": "Get Keyword Details",
+      "operation": "get_keyword_details",
+      "description": "Retrieve specific keyword details from the GitGuardian Enterprise server based on the keyword type and it's ID specified.",
+      "category": "investigation",
+      "annotation": "get_keyword_details",
+      "parameters": [
+        {
+          "title": "Keyword Type",
+          "name": "keyword_type",
+          "type": "select",
+          "description": "Select the type of keyword to retrieve a details. You can choose from the following options: Incident Raiser or Secret Grasper.",
+          "tooltip": "Select the type of keyword to retrieve a details. You can choose from the following options: Incident Raiser or Secret Grasper.",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "options": [
+            "Incident Raiser",
+            "Secret Grasper"
+          ],
+          "value": "Incident Raiser",
+          "onchange": {
+            "Incident Raiser": [
+              {
+                "title": "Incident Raiser ID",
+                "name": "id",
+                "type": "text",
+                "description": "Specify the Incident Raiser ID to retrieve its details from the GitGuardian Enterprise server. You can obtain the Incident Raiser ID from the response of the \"Get All Keywords\" action.",
+                "tooltip": "Specify the Incident Raiser ID to retrieve its details from the GitGuardian Enterprise server. You can obtain the Incident Raiser ID from the response of the \"Get All Keywords\" action.",
+                "visible": true,
+                "editable": true,
+                "required": true
+              }
+            ],
+            "Secret Grasper": [
+              {
+                "title": "Secret Grasper ID",
+                "name": "id",
+                "type": "text",
+                "description": "Specify the Secret Grasper ID to retrieve its details from the GitGuardian Enterprise server. You can obtain the Secret Grasper ID from the response of the \"Get All Keywords\" action.",
+                "tooltip": "Specify the Secret Grasper ID to retrieve its details from the GitGuardian Enterprise server. You can obtain the Secret Grasper ID from the response of the \"Get All Keywords\" action.",
+                "visible": true,
+                "editable": true,
+                "required": true
+              }
+            ]
+          }
+        }
+      ],
+      "output_schema": {},
+      "enabled": true
+    },
+    {
+      "title": "Update Keyword Details",
+      "operation": "update_keyword_details",
+      "description": "Update a specific keyword details in the GitGuardian Enterprise server based on the keyword type, name, labels, and it's ID specified.",
+      "category": "investigation",
+      "annotation": "update_keyword_details",
+      "parameters": [
+        {
+          "title": "Keyword Type",
+          "name": "keyword_type",
+          "type": "select",
+          "description": "Select the type of keyword to update a details. You can choose from the following options: Incident Raiser or Secret Grasper.",
+          "tooltip": "Select the type of keyword to update a details. You can choose from the following options: Incident Raiser or Secret Grasper.",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "options": [
+            "Incident Raiser",
+            "Secret Grasper"
+          ],
+          "value": "Incident Raiser",
+          "onchange": {
+            "Incident Raiser": [
+              {
+                "title": "Incident Raiser ID",
+                "name": "id",
+                "type": "text",
+                "description": "Specify the Incident Raiser ID to update its details from the GitGuardian Enterprise server. You can obtain the Incident Raiser ID from the response of the \"Get All Keywords\" action.",
+                "tooltip": "Specify the Incident Raiser ID to update its details from the GitGuardian Enterprise server. You can obtain the Incident Raiser ID from the response of the \"Get All Keywords\" action.",
+                "visible": true,
+                "editable": true,
+                "required": true
+              }
+            ],
+            "Secret Grasper": [
+              {
+                "title": "Secret Grasper ID",
+                "name": "id",
+                "type": "text",
+                "description": "Specify the Secret Grasper ID to update its details from the GitGuardian Enterprise server. You can obtain the Secret Grasper ID from the response of the \"Get All Keywords\" action.",
+                "tooltip": "Specify the Secret Grasper ID to update its details from the GitGuardian Enterprise server. You can obtain the Secret Grasper ID from the response of the \"Get All Keywords\" action.",
+                "visible": true,
+                "editable": true,
+                "required": true
+              }
+            ]
+          }
+        },
+        {
+          "title": "Labels",
+          "name": "labels",
+          "type": "text",
+          "description": "Specify the comma-separated list of integer labels based on which you want to update a keyword.",
+          "tooltip": "Specify the comma-separated list of integer labels based on which you want to update a keyword.",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "placeholder": "For Ex: 0,1,2 etc"
+        },
+        {
+          "title": "New Keyword Name",
+          "name": "name",
+          "type": "text",
+          "description": "Specify the new name of the keyword based on which you want to update a keyword.",
+          "tooltip": "Specify the new name of the keyword based on which you want to update a keyword.",
+          "visible": true,
+          "editable": true,
+          "required": true
+        }
+      ],
+      "output_schema": {},
+      "enabled": true
+    },
+    {
+      "title": "Delete Keyword",
+      "operation": "delete_keyword",
+      "description": "Deletes a specific keyword from the GitGuardian Enterprise server based on the keyword type and it's ID specified.",
+      "category": "investigation",
+      "annotation": "delete_keyword",
+      "parameters": [
+        {
+          "title": "Keyword Type",
+          "name": "keyword_type",
+          "type": "select",
+          "description": "Select the type of keyword to delete a specific keyword. You can choose from the following options: Incident Raiser or Secret Grasper.",
+          "tooltip": "Select the type of keyword to delete a specific keyword. You can choose from the following options: Incident Raiser or Secret Grasper.",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "options": [
+            "Incident Raiser",
+            "Secret Grasper"
+          ],
+          "value": "Incident Raiser",
+          "onchange": {
+            "Incident Raiser": [
+              {
+                "title": "Incident Raiser ID",
+                "name": "id",
+                "type": "text",
+                "description": "Specify the Incident Raiser ID to delete its details from the GitGuardian Enterprise server. You can obtain the Incident Raiser ID from the response of the \"Get All Keywords\" action.",
+                "tooltip": "Specify the Incident Raiser ID to delete its details from the GitGuardian Enterprise server. You can obtain the Incident Raiser ID from the response of the \"Get All Keywords\" action.",
+                "visible": true,
+                "editable": true,
+                "required": true
+              }
+            ],
+            "Secret Grasper": [
+              {
+                "title": "Secret Grasper ID",
+                "name": "id",
+                "type": "text",
+                "description": "Specify the Secret Grasper ID to delete its details from the GitGuardian Enterprise server. You can obtain the Secret Grasper ID from the response of the \"Get All Keywords\" action.",
+                "tooltip": "Specify the Secret Grasper ID to delete its details from the GitGuardian Enterprise server. You can obtain the Secret Grasper ID from the response of the \"Get All Keywords\" action.",
+                "visible": true,
+                "editable": true,
+                "required": true
+              }
+            ]
+          }
+        }
+      ],
+      "output_schema": {},
+      "enabled": true
+    },
+    {
+      "title": "Export Keywords",
+      "operation": "export_keywords",
+      "description": "Exports the keyword as CSV file from the GitGuardian Enterprise server.",
+      "category": "investigation",
+      "annotation": "export_keywords",
+      "parameters": [],
+      "output_schema": {},
+      "enabled": true
+    },
+    {
+      "title": "Get All Incident Secrets",
+      "operation": "get_all_incident_secrets",
+      "description": "Retrieve a list of incident secrets from the GitGuardian Enterprise server using the specified filter parameters.",
+      "category": "investigation",
+      "annotation": "get_all_incident_secrets",
+      "parameters": [
+        {
+          "title": "Full-Text Search",
+          "name": "search",
+          "type": "text",
+          "description": "Full-text search across multiple fields of the incident secrets.",
+          "tooltip": "Enter keywords to search incident secrets entries.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "Severity",
+          "name": "severity",
+          "type": "text",
+          "description": "Specify the comma-separated list of severity based on which you want to retrieve a incident secrets.",
+          "tooltip": "Specify the comma-separated list of severity based on which you want to retrieve a incident secrets.",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "placeholder": "For Ex: severity1,severity2, etc"
+        },
+        {
+          "title": "Status",
+          "name": "status",
+          "type": "text",
+          "description": "Specify the comma-separated list of status based on which you want to retrieve a incident secrets.",
+          "tooltip": "Specify the comma-separated list of status based on which you want to retrieve a incident secrets.",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "placeholder": "For Ex: status1,status2, etc"
+        },
+        {
+          "title": "Created At (Current Period)",
+          "name": "created_at__current",
+          "type": "select",
+          "description": "Select a time range to filter incident secrets based on when they were created. You can choose from the following current Day, Week, Month, or Year.",
+          "tooltip": "Select a time range to filter incident secrets based on when they were created. You can choose from the following current Day, Week, Month, or Year.",
+          "visible": true,
+          "editable": true,
+          "required": false,
+          "options": [
+            "Day",
+            "Week",
+            "Month",
+            "Year"
+          ]
+        },
+        {
+          "title": "Created From",
+          "name": "created_at__from",
+          "type": "datetime",
+          "description": "Select a date and time to retrieve results that include only those items that were created after the specified timestamp.",
+          "tooltip": "Select a date and time to retrieve results that include only those items that were created after the specified timestamp.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "Created To",
+          "name": "created_at__to",
+          "type": "datetime",
+          "description": "Select a date and time to retrieve results that include only those items that were created before the specified timestamp.",
+          "tooltip": "Select a date and time to retrieve results that include only those items that were created before the specified timestamp.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "Ordering",
+          "name": "ordering",
+          "type": "text",
+          "description": "Specify how results should be ordered, such as by timestamp or actor name.",
+          "tooltip": "Specify how results should be ordered, such as by timestamp or actor name.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "Page Number",
+          "description": "Specify the page number from which to retrieve incident keywords results when pagination is used. Default is 0.",
+          "type": "integer",
+          "name": "page",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Used for pagination: page number to retrieve. Default is 0.",
+          "value": 0
+        },
+        {
+          "title": "Results Per Page",
+          "description": "Number of results to return per page when pagination is applied.",
+          "type": "integer",
+          "name": "per_page",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "How many results to include per page. Default varies by API."
+        },
+        {
+          "title": "Additional Parameters",
+          "description": "Specify additional parameters with which to filter incident secrets in GitGuardian Enterprise server. You can refer this link for more fields: https://enterprise.gitguardian.com/api/docs#operation/incidents_secrets_list",
+          "type": "json",
+          "name": "additional_fields",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Specify additional parameters with which to filter incident secrets in GitGuardian Enterprise server.",
+          "value": {
+            "assignee": "",
+            "assignee__in": "",
+            "assignee__nin": "",
+            "created_at__delta": "",
+            "created_at__tz": "",
+            "current": "",
+            "delta": "",
+            "detector__in": "",
+            "detector__nin": "",
+            "display_name": "",
+            "event_created_at__current": ""
+          }
+        }
+      ],
+      "output_schema": {},
+      "enabled": true
+    },
+    {
+      "title": "Get Incident Secret Details",
+      "operation": "get_incident_secret_details",
+      "description": "Retrieve specific incident secret details from the GitGuardian Enterprise server using the provided incident secret ID.",
+      "category": "investigation",
+      "annotation": "get_incident_secret_details",
+      "parameters": [
+        {
+          "title": "Incident Secret ID",
+          "name": "id",
+          "type": "text",
+          "description": "Specify the incident secret ID to retrieve its details from the GitGuardian Enterprise server. You can obtain the Incident Secret ID from the response of the \"Get All Incident Secrets\" action.",
+          "tooltip": "Specify the incident secret ID to retrieve its details from the GitGuardian Enterprise server. You can obtain the Incident Secret ID from the response of the \"Get All Incident Secrets\" action.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        }
+      ],
+      "output_schema": {},
+      "enabled": true
+    },
+    {
+      "title": "Update Incident Secret Status",
+      "operation": "update_incident_secret_status",
+      "description": "Updates a specific incident secret details in the GitGuardian Enterprise server using the provided incident secret ID and status.",
+      "category": "investigation",
+      "annotation": "update_incident_secret_status",
+      "parameters": [
+        {
+          "title": "Incident Secret ID",
+          "name": "id",
+          "type": "text",
+          "description": "Specify the incident secret ID to update its details in the GitGuardian Enterprise server. You can obtain the Incident Secret ID from the response of the \"Get All Incident Secrets\" action.",
+          "tooltip": "Specify the incident secret ID to update its details in the GitGuardian Enterprise server. You can obtain the Incident Secret ID from the response of the \"Get All Incident Secrets\" action.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "Status",
+          "name": "action",
+          "type": "select",
+          "description": "Select the status based on which you want to update a incident secret. You can choose from the following options: Acknowledge, Add Note, Assign, Reopen, Resolve, Set Severity, UnAcknowledge, or UnAssign.",
+          "tooltip": "Select the status based on which you want to update a incident secret. You can choose from the following options: Acknowledge, Add Note, Assign, Reopen, Resolve, Set Severity, UnAcknowledge, or UnAssign.",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "options": [
+            "Acknowledge",
+            "Add Note",
+            "Assign",
+            "Reopen",
+            "Resolve",
+            "Set Severity",
+            "UnAcknowledge",
+            "UnAssign"
+          ]
+        }
+      ],
+      "output_schema": {},
+      "enabled": true
+    },
+    {
+      "title": "Create Incident Secret Shared Link",
+      "operation": "create_incident_secret_shared_link",
+      "description": "Create a public link for the incident to request feedback from anyone outside of the platform using the provided incident secret ID.",
+      "category": "investigation",
+      "annotation": "create_incident_secret_shared_link",
+      "parameters": [
+        {
+          "title": "Incident Secret ID",
+          "name": "id",
+          "type": "text",
+          "description": "Specify the incident secret ID to create shared link in the GitGuardian Enterprise server. You can obtain the Incident Secret ID from the response of the \"Get All Incident Secrets\" action.",
+          "tooltip": "Specify the incident secret ID to create shared link in the GitGuardian Enterprise server. You can obtain the Incident Secret ID from the response of the \"Get All Incident Secrets\" action.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        }
+      ],
+      "output_schema": {},
+      "enabled": true
+    },
+    {
+      "title": "Rotate Incident Secret Shared Link",
+      "operation": "rotate_incident_secret_shared_link",
+      "description": "Delete any of the previously created links, and create a fresh one using the provided incident secret ID.",
+      "category": "investigation",
+      "annotation": "rotate_incident_secret_shared_link",
+      "parameters": [
+        {
+          "title": "Incident Secret ID",
+          "name": "id",
+          "type": "text",
+          "description": "Specify the incident secret ID to rotate shared link in the GitGuardian Enterprise server. You can obtain the Incident Secret ID from the response of the \"Get All Incident Secrets\" action.",
+          "tooltip": "Specify the incident secret ID to rotate shared link in the GitGuardian Enterprise server. You can obtain the Incident Secret ID from the response of the \"Get All Incident Secrets\" action.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        }
+      ],
+      "output_schema": {},
+      "enabled": true
+    },
+    {
+      "title": "Delete Incident Secret Shared Link",
+      "operation": "delete_incident_secret_shared_link",
+      "description": "Deactivate and delete a given shared link using the provided incident secret ID.",
+      "category": "investigation",
+      "annotation": "delete_incident_secret_shared_link",
+      "parameters": [
+        {
+          "title": "Incident Secret ID",
+          "name": "id",
+          "type": "text",
+          "description": "Specify the incident secret ID to deactivate and delete shared link in the GitGuardian Enterprise server. You can obtain the Incident Secret ID from the response of the \"Get All Incident Secrets\" action.",
+          "tooltip": "Specify the incident secret ID to deactivate abd delete shared link in the GitGuardian Enterprise server. You can obtain the Incident Secret ID from the response of the \"Get All Incident Secrets\" action.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        }
+      ],
+      "output_schema": {},
+      "enabled": true
+    },
+    {
+      "title": "Get All Incident Keywords",
+      "operation": "get_all_incident_keywords",
+      "description": "Retrieve a list of incident keywords from the GitGuardian Enterprise server using the specified filter parameters.",
+      "category": "investigation",
+      "annotation": "get_all_incident_keywords",
+      "parameters": [
+        {
+          "title": "Page Number",
+          "description": "Specify the page number from which to retrieve incident keywords results when pagination is used. Default is 0.",
+          "type": "integer",
+          "name": "page",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "Used for pagination: page number to retrieve. Default is 0.",
+          "value": 0
+        },
+        {
+          "title": "Results Per Page",
+          "description": "Number of results to return per page when pagination is applied.",
+          "type": "integer",
+          "name": "per_page",
+          "required": false,
+          "visible": true,
+          "editable": true,
+          "tooltip": "How many results to include per page. Default varies by API."
+        }
+      ],
+      "output_schema": {},
+      "enabled": true
+    },
+    {
+      "title": "Get Incident Keyword Details",
+      "operation": "get_incident_keyword_details",
+      "description": "Retrieve specific incident keyword details from the GitGuardian Enterprise server based on the incident keyword ID specified.",
+      "category": "investigation",
+      "annotation": "get_incident_keyword_details",
+      "parameters": [
+        {
+          "title": "Incident Keyword ID",
+          "name": "id",
+          "type": "text",
+          "description": "Specify the Incident Keyword ID to retrieve its details from the GitGuardian Enterprise server. You can obtain the Incident Keyword ID from the response of the \"Get All Incident Keywords\" action.",
+          "tooltip": "Specify the Incident Raiser ID to retrieve its details from the GitGuardian Enterprise server. You can obtain the Incident Keyword ID from the response of the \"Get All Incident Keywords\" action.",
+          "visible": true,
+          "editable": true,
+          "required": true
+        }
+      ],
+      "output_schema": {},
+      "enabled": true
+    },
+    {
+      "title": "Update Incident Keyword Status",
+      "operation": "update_incident_keyword_status",
+      "description": "Updates a specific incident keyword details in the GitGuardian Enterprise server using the provided incident keyword ID and status.",
+      "category": "investigation",
+      "annotation": "update_incident_keyword_status",
+      "parameters": [
+        {
+          "title": "Incident Keyword ID",
+          "name": "id",
+          "type": "text",
+          "description": "Specify the incident keyword ID to update its details in the GitGuardian Enterprise server. You can obtain the Incident Keyword ID from the response of the \"Get All Incident Keywords\" action.",
+          "tooltip": "Specify the incident keyword ID to update its details in the GitGuardian Enterprise server. You can obtain the Incident Keyword ID from the response of the \"Get All Incident Keywords\" action.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "title": "Status",
+          "name": "action",
+          "type": "select",
+          "description": "Select the status based on which you want to update a incident keyword. You can choose from the following options: Acknowledge, Add Note, Assign, Reopen, Resolve, Set Severity, UnAcknowledge, or UnAssign.",
+          "tooltip": "Select the status based on which you want to update a incident keyword. You can choose from the following options: Acknowledge, Add Note, Assign, Reopen, Resolve, Set Severity, UnAcknowledge, or UnAssign.",
+          "visible": true,
+          "editable": true,
+          "required": true,
+          "options": [
+            "Acknowledge",
+            "Add Note",
+            "Assign",
+            "Reopen",
+            "Resolve",
+            "Set Severity",
+            "UnAcknowledge",
+            "UnAssign"
+          ]
+        }
+      ],
+      "output_schema": {},
+      "enabled": true
+    },
+    {
+      "title": "Get Incident Secret Note",
+      "operation": "get_incident_secret_note",
+      "description": "Retrieve specific incident secret note from the GitGuardian Enterprise server using the provided incident secret ID.",
+      "category": "investigation",
+      "annotation": "get_incident_secret_note",
+      "parameters": [
+        {
+          "title": "Incident Secret ID",
+          "name": "id",
+          "type": "text",
+          "description": "Specify the incident secret ID to retrieve its note details from the GitGuardian Enterprise server. You can obtain the Incident Secret ID from the response of the \"Get All Incident Secrets\" action.",
+          "tooltip": "Specify the incident secret ID to retrieve its note details from the GitGuardian Enterprise server. You can obtain the Incident Secret ID from the response of the \"Get All Incident Secrets\" action.",
+          "visible": true,
+          "editable": true,
+          "required": false
+        }
+      ],
+      "output_schema": {},
+      "enabled": true
+    },
+    {
+      "title": "Get Incident Keyword Note",
+      "operation": "get_incident_keyword_note",
+      "description": "Retrieve specific incident keyword note from the GitGuardian Enterprise server based on the incident keyword ID specified.",
+      "category": "investigation",
+      "annotation": "get_incident_keyword_note",
+      "parameters": [
+        {
+          "title": "Incident Keyword ID",
+          "name": "id",
+          "type": "text",
+          "description": "Specify the Incident Keyword ID to retrieve its note details from the GitGuardian Enterprise server. You can obtain the Incident Keyword ID from the response of the \"Get All Incident Keywords\" action.",
+          "tooltip": "Specify the Incident Raiser ID to retrieve its note details from the GitGuardian Enterprise server. You can obtain the Incident Keyword ID from the response of the \"Get All Incident Keywords\" action.",
+          "visible": true,
+          "editable": true,
+          "required": true
+        }
+      ],
+      "output_schema": {},
+      "enabled": true
+    },
+    {
+      "operation": "execute_an_api_call",
+      "title": "Execute an API Request",
+      "annotation": "execute_an_api_call",
+      "description": "Sends an API request to an API endpoint based on specified HTTP method, endpoint, and other input parameters that you have specified, enabling flexible API interactions tailored to user needs.",
+      "category": "investigation",
+      "visible": true,
+      "enabled": true,
+      "parameters": [
+        {
+          "name": "method",
+          "title": "HTTP Method",
+          "type": "select",
+          "editable": true,
+          "visible": true,
+          "required": true,
+          "description": "Select an HTTP action for the request. You can select from the following options:  \n\nDELETE \n\nGET \n\nPATCH \n\nPOST \n\nPUT ",
+          "options": [
+            "GET",
+            "POST",
+            "PUT",
+            "PATCH",
+            "DELETE"
+          ]
+        },
+        {
+          "title": "Endpoint",
+          "name": "endpoint",
+          "tooltip": "Specify the target API URL path for example: audit_logs",
+          "description": "Specify the target API URL path for the request. For example, if the website is https://example.com and URL path is https://example.com/images/pic.jpg, the endpoint would be images/pic.jpg.",
+          "type": "text",
+          "visible": true,
+          "editable": true,
+          "required": true
+        },
+        {
+          "title": "Query Parameters",
+          "name": "query_params",
+          "description": "(Optional) Specify any optional parameters to add to the URL and refine the request.",
+          "type": "json",
+          "visible": true,
+          "editable": true,
+          "required": false
+        },
+        {
+          "name": "payload",
+          "title": "Request Payload",
+          "type": "json",
+          "editable": true,
+          "visible": true,
+          "required": false,
+          "description": "(Optional) Specify data, as JSON, to be sent as the request payload (typically for POST or PUT requests)."
+        }
+      ],
+      "output_schema": {}
+    }
+  ]
+}
