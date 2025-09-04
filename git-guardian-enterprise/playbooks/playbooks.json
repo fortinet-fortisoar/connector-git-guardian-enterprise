@@ -1,0 +1,1688 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "uuid": "621e1849-7331-4410-a560-f9d6016514c2",
+      "@type": "WorkflowCollection",
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "uuid": "feb089dd-e5df-49f0-9895-3d9a96dc262f",
+          "collection": "/api/3/workflow_collections/621e1849-7331-4410-a560-f9d6016514c2",
+          "steps": [
+            {
+              "uuid": "79c5459c-79b9-4385-84ec-a047dca30000",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "ba9f6942-7c78-4c4a-8a22-9bbafb83beb5",
+              "@type": "WorkflowStep",
+              "name": "Get All Audit Logs",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "GitGuardian Enterprise",
+                "config": "",
+                "params": {
+                  "actor__in": "",
+                  "actor__nin": "",
+                  "actor_email": "",
+                  "ordering": "",
+                  "search": "",
+                  "type": "",
+                  "type__in": "",
+                  "type__nin": "",
+                  "page": "",
+                  "per_page": ""
+                },
+                "version": "1.0.0",
+                "connector": "git-guardian-enterprise",
+                "operation": "get_all_audit_logs",
+                "operationTitle": "Get All Audit Logs"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieve a list of audit logs from the GitGuardian Enterprise server using the specified filter parameters.",
+          "name": "Get All Audit Logs",
+          "tag": "#GitGuardian Enterprise",
+          "recordTags": [
+            "Git",
+            "git-guardian-enterprise"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/79c5459c-79b9-4385-84ec-a047dca30000",
+          "routes": [
+            {
+              "uuid": "3626160f-23a1-4e6a-b195-4ec76b107cfc",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get All Audit Logs",
+              "sourceStep": "/api/3/workflow_steps/79c5459c-79b9-4385-84ec-a047dca30000",
+              "targetStep": "/api/3/workflow_steps/ba9f6942-7c78-4c4a-8a22-9bbafb83beb5"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "8b5008c6-05b4-4a12-83f0-0adb232c18fb",
+          "collection": "/api/3/workflow_collections/621e1849-7331-4410-a560-f9d6016514c2",
+          "steps": [
+            {
+              "uuid": "2698816c-132e-4c5b-9bb4-ac14fbd58692",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "a78bb4cf-271f-4364-b405-68c425bc2ef7",
+              "@type": "WorkflowStep",
+              "name": "Get Audit Log Details",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "GitGuardian Enterprise",
+                "config": "",
+                "params": {
+                  "id": ""
+                },
+                "version": "1.0.0",
+                "connector": "git-guardian-enterprise",
+                "operation": "get_audit_log_details",
+                "operationTitle": "Get Audit Log Details"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieve specific audit log details from the GitGuardian Enterprise server using the provided audit log ID.",
+          "name": "Get Audit Log Details",
+          "tag": "#GitGuardian Enterprise",
+          "recordTags": [
+            "Git",
+            "git-guardian-enterprise"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/2698816c-132e-4c5b-9bb4-ac14fbd58692",
+          "routes": [
+            {
+              "uuid": "e5a8d6ce-19cf-4d83-8181-f241cedde40c",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Audit Log Details",
+              "sourceStep": "/api/3/workflow_steps/2698816c-132e-4c5b-9bb4-ac14fbd58692",
+              "targetStep": "/api/3/workflow_steps/a78bb4cf-271f-4364-b405-68c425bc2ef7"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "cb349e6f-6fa0-4b68-bf82-2eaf7a52ecd7",
+          "collection": "/api/3/workflow_collections/621e1849-7331-4410-a560-f9d6016514c2",
+          "steps": [
+            {
+              "uuid": "0c835cbd-6d51-40fd-bffd-355b132c8d15",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "feec6370-db71-4f49-8889-38b4d2b3a2b9",
+              "@type": "WorkflowStep",
+              "name": "Get Audit Log Actors/Types",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "GitGuardian Enterprise",
+                "config": "",
+                "params": {
+                  "audit_log_metadata": "Audit Log Actors",
+                  "page": "",
+                  "per_page": ""
+                },
+                "version": "1.0.0",
+                "connector": "git-guardian-enterprise",
+                "operation": "get_audit_log_actors_types",
+                "operationTitle": "Get Audit Log Actors/Types"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieve a list of audit log actors or types from the GitGuardian Enterprise server based on the audit log metadata and other filter parameter you have specified.",
+          "name": "Get Audit Log Actors/Types",
+          "tag": "#GitGuardian Enterprise",
+          "recordTags": [
+            "Git",
+            "git-guardian-enterprise"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/0c835cbd-6d51-40fd-bffd-355b132c8d15",
+          "routes": [
+            {
+              "uuid": "69d9a97e-5f57-4d51-9746-4ed394415499",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Audit Log Actors/Types",
+              "sourceStep": "/api/3/workflow_steps/0c835cbd-6d51-40fd-bffd-355b132c8d15",
+              "targetStep": "/api/3/workflow_steps/feec6370-db71-4f49-8889-38b4d2b3a2b9"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "4850f27e-8916-4f7d-b8ed-79ce06c11e87",
+          "collection": "/api/3/workflow_collections/621e1849-7331-4410-a560-f9d6016514c2",
+          "steps": [
+            {
+              "uuid": "76b28f89-aba2-4adf-aeee-6957bb74d22c",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "47ada2d5-bdba-4e41-bbff-2a47f3285a10",
+              "@type": "WorkflowStep",
+              "name": "Get All Git Users",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "GitGuardian Enterprise",
+                "config": "",
+                "params": {
+                  "git_type": "GIT Users",
+                  "page": "",
+                  "per_page": ""
+                },
+                "version": "1.0.0",
+                "connector": "git-guardian-enterprise",
+                "operation": "get_all_git_users",
+                "operationTitle": "Get All Git Users"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieve a list of git users from the GitGuardian Enterprise server based on the git type and other filter parameters you have specified.",
+          "name": "Get All Git Users",
+          "tag": "#GitGuardian Enterprise",
+          "recordTags": [
+            "Git",
+            "git-guardian-enterprise"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/76b28f89-aba2-4adf-aeee-6957bb74d22c",
+          "routes": [
+            {
+              "uuid": "10a546f9-6662-47e5-9396-510c0dae422f",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get All Git Users",
+              "sourceStep": "/api/3/workflow_steps/76b28f89-aba2-4adf-aeee-6957bb74d22c",
+              "targetStep": "/api/3/workflow_steps/47ada2d5-bdba-4e41-bbff-2a47f3285a10"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "f530d851-74f6-4e09-b2dd-487c75fb6b4e",
+          "collection": "/api/3/workflow_collections/621e1849-7331-4410-a560-f9d6016514c2",
+          "steps": [
+            {
+              "uuid": "820415ea-2eca-4ecb-a8d9-47387d1c7731",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "224f9f55-657a-41a5-98ac-da415d515e3a",
+              "@type": "WorkflowStep",
+              "name": "Get Git User Details",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "GitGuardian Enterprise",
+                "config": "",
+                "params": {
+                  "git_type": "GIT Users"
+                },
+                "version": "1.0.0",
+                "connector": "git-guardian-enterprise",
+                "operation": "get_git_user_details",
+                "operationTitle": "Get Git User Details"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieve specific git user details from the GitGuardian Enterprise server based on the git type and it's ID specified.",
+          "name": "Get Git User Details",
+          "tag": "#GitGuardian Enterprise",
+          "recordTags": [
+            "Git",
+            "git-guardian-enterprise"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/820415ea-2eca-4ecb-a8d9-47387d1c7731",
+          "routes": [
+            {
+              "uuid": "429c7336-997c-4539-a9c4-f74e5c96b4c3",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Git User Details",
+              "sourceStep": "/api/3/workflow_steps/820415ea-2eca-4ecb-a8d9-47387d1c7731",
+              "targetStep": "/api/3/workflow_steps/224f9f55-657a-41a5-98ac-da415d515e3a"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "ce72ec82-8055-4bcb-b508-fec02b82f146",
+          "collection": "/api/3/workflow_collections/621e1849-7331-4410-a560-f9d6016514c2",
+          "steps": [
+            {
+              "uuid": "ab391150-bcac-42b1-a0c4-e8f3a3291442",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "6ae9ddfe-60f8-4116-8fd9-f17df3484308",
+              "@type": "WorkflowStep",
+              "name": "Create Keyword",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "GitGuardian Enterprise",
+                "config": "",
+                "params": {
+                  "id": "",
+                  "name": "",
+                  "keyword": "",
+                  "categories": "",
+                  "status": "",
+                  "type": "",
+                  "labels": "",
+                  "created_at": ""
+                },
+                "version": "1.0.0",
+                "connector": "git-guardian-enterprise",
+                "operation": "create_keyword",
+                "operationTitle": "Create Keyword"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Creates a new keyword in the GitGuardian Enterprise server, it will be in PENDING state until GitGuardian approves or refuses the keyword.",
+          "name": "Create Keyword",
+          "tag": "#GitGuardian Enterprise",
+          "recordTags": [
+            "Git",
+            "git-guardian-enterprise"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/ab391150-bcac-42b1-a0c4-e8f3a3291442",
+          "routes": [
+            {
+              "uuid": "aede88e5-20c4-4e54-a321-1e410d3512fa",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Create Keyword",
+              "sourceStep": "/api/3/workflow_steps/ab391150-bcac-42b1-a0c4-e8f3a3291442",
+              "targetStep": "/api/3/workflow_steps/6ae9ddfe-60f8-4116-8fd9-f17df3484308"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "9ef9f349-d194-49ef-b3cb-f1ed03a0d2c6",
+          "collection": "/api/3/workflow_collections/621e1849-7331-4410-a560-f9d6016514c2",
+          "steps": [
+            {
+              "uuid": "0cea14cf-f65e-4933-9805-7db570bd7651",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "f303c270-60a8-42cf-9826-690b657d5c80",
+              "@type": "WorkflowStep",
+              "name": "Get All Keywords",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "GitGuardian Enterprise",
+                "config": "",
+                "params": {
+                  "keyword_type": "",
+                  "categories": "",
+                  "status": "",
+                  "type": "",
+                  "ordering": "",
+                  "search": "",
+                  "labels__in": "",
+                  "labels__nin": "",
+                  "status__in": "",
+                  "status__nin": "",
+                  "type__in": "",
+                  "type__nin": "",
+                  "page": "",
+                  "per_page": ""
+                },
+                "version": "1.0.0",
+                "connector": "git-guardian-enterprise",
+                "operation": "get_all_keywords",
+                "operationTitle": "Get All Keywords"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieve a list of keywords from the GitGuardian Enterprise server using the specified filter parameters.",
+          "name": "Get All Keywords",
+          "tag": "#GitGuardian Enterprise",
+          "recordTags": [
+            "Git",
+            "git-guardian-enterprise"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/0cea14cf-f65e-4933-9805-7db570bd7651",
+          "routes": [
+            {
+              "uuid": "7ed635bc-7346-4789-b59f-266aa960e78f",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get All Keywords",
+              "sourceStep": "/api/3/workflow_steps/0cea14cf-f65e-4933-9805-7db570bd7651",
+              "targetStep": "/api/3/workflow_steps/f303c270-60a8-42cf-9826-690b657d5c80"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "8d3a5ff4-d74c-4d87-b798-e85a2750292d",
+          "collection": "/api/3/workflow_collections/621e1849-7331-4410-a560-f9d6016514c2",
+          "steps": [
+            {
+              "uuid": "5caae9fa-4fa4-43a6-9280-4b05e219cc2f",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "cb1caf23-3ee6-4a3e-bb60-62cb43753afa",
+              "@type": "WorkflowStep",
+              "name": "Get Keyword Details",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "GitGuardian Enterprise",
+                "config": "",
+                "params": {
+                  "keyword_type": "Incident Raiser"
+                },
+                "version": "1.0.0",
+                "connector": "git-guardian-enterprise",
+                "operation": "get_keyword_details",
+                "operationTitle": "Get Keyword Details"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieve specific keyword details from the GitGuardian Enterprise server based on the keyword type and it's ID specified.",
+          "name": "Get Keyword Details",
+          "tag": "#GitGuardian Enterprise",
+          "recordTags": [
+            "Git",
+            "git-guardian-enterprise"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/5caae9fa-4fa4-43a6-9280-4b05e219cc2f",
+          "routes": [
+            {
+              "uuid": "583820cd-88fc-493b-aacd-a0fdf9eb7ed7",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Keyword Details",
+              "sourceStep": "/api/3/workflow_steps/5caae9fa-4fa4-43a6-9280-4b05e219cc2f",
+              "targetStep": "/api/3/workflow_steps/cb1caf23-3ee6-4a3e-bb60-62cb43753afa"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "abbf8251-658a-4adc-8cbe-98437baee385",
+          "collection": "/api/3/workflow_collections/621e1849-7331-4410-a560-f9d6016514c2",
+          "steps": [
+            {
+              "uuid": "490b50ce-b0cc-4573-95d9-30036acb71dc",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "b252ac76-6ded-40eb-a906-ff8c8b9e14bd",
+              "@type": "WorkflowStep",
+              "name": "Update Keyword Details",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "GitGuardian Enterprise",
+                "config": "",
+                "params": {
+                  "keyword_type": "Incident Raiser",
+                  "labels": "",
+                  "name": ""
+                },
+                "version": "1.0.0",
+                "connector": "git-guardian-enterprise",
+                "operation": "update_keyword_details",
+                "operationTitle": "Update Keyword Details"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Update a specific keyword details in the GitGuardian Enterprise server based on the keyword type, name, labels, and it's ID specified.",
+          "name": "Update Keyword Details",
+          "tag": "#GitGuardian Enterprise",
+          "recordTags": [
+            "Git",
+            "git-guardian-enterprise"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/490b50ce-b0cc-4573-95d9-30036acb71dc",
+          "routes": [
+            {
+              "uuid": "fb85b44d-f0e3-4d71-9add-c83ee7967dca",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Update Keyword Details",
+              "sourceStep": "/api/3/workflow_steps/490b50ce-b0cc-4573-95d9-30036acb71dc",
+              "targetStep": "/api/3/workflow_steps/b252ac76-6ded-40eb-a906-ff8c8b9e14bd"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "753dc0b9-e877-4959-bb17-74b6d5853921",
+          "collection": "/api/3/workflow_collections/621e1849-7331-4410-a560-f9d6016514c2",
+          "steps": [
+            {
+              "uuid": "fe49693f-7444-49bd-a4c9-198811e13f3a",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "13e5f58b-3bfd-4b67-bd21-0806f3d3f8b5",
+              "@type": "WorkflowStep",
+              "name": "Delete Keyword",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "GitGuardian Enterprise",
+                "config": "",
+                "params": {
+                  "keyword_type": "Incident Raiser"
+                },
+                "version": "1.0.0",
+                "connector": "git-guardian-enterprise",
+                "operation": "delete_keyword",
+                "operationTitle": "Delete Keyword"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Deletes a specific keyword from the GitGuardian Enterprise server based on the keyword type and it's ID specified.",
+          "name": "Delete Keyword",
+          "tag": "#GitGuardian Enterprise",
+          "recordTags": [
+            "Git",
+            "git-guardian-enterprise"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/fe49693f-7444-49bd-a4c9-198811e13f3a",
+          "routes": [
+            {
+              "uuid": "2dbc087e-78d4-4569-983a-546026a69f44",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Delete Keyword",
+              "sourceStep": "/api/3/workflow_steps/fe49693f-7444-49bd-a4c9-198811e13f3a",
+              "targetStep": "/api/3/workflow_steps/13e5f58b-3bfd-4b67-bd21-0806f3d3f8b5"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "0be64813-8f1e-4b45-91f0-d6d07faf767d",
+          "collection": "/api/3/workflow_collections/621e1849-7331-4410-a560-f9d6016514c2",
+          "steps": [
+            {
+              "uuid": "c1badc0d-1708-4e5f-94eb-3dbaa78d7875",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "c1f54732-ac69-4afd-8fad-0f52f069e0da",
+              "@type": "WorkflowStep",
+              "name": "Export Keywords",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "GitGuardian Enterprise",
+                "config": "",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "git-guardian-enterprise",
+                "operation": "export_keywords",
+                "operationTitle": "Export Keywords"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Exports the keyword as CSV file from the GitGuardian Enterprise server.",
+          "name": "Export Keywords",
+          "tag": "#GitGuardian Enterprise",
+          "recordTags": [
+            "Git",
+            "git-guardian-enterprise"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/c1badc0d-1708-4e5f-94eb-3dbaa78d7875",
+          "routes": [
+            {
+              "uuid": "d727cdf3-2595-48bc-9f16-79695a381861",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Export Keywords",
+              "sourceStep": "/api/3/workflow_steps/c1badc0d-1708-4e5f-94eb-3dbaa78d7875",
+              "targetStep": "/api/3/workflow_steps/c1f54732-ac69-4afd-8fad-0f52f069e0da"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "9cb6a221-f292-4d84-a437-d2d49d725e5d",
+          "collection": "/api/3/workflow_collections/621e1849-7331-4410-a560-f9d6016514c2",
+          "steps": [
+            {
+              "uuid": "9d3d2f69-8c84-4ee8-b30a-05bb512afa72",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "66ecbc58-9a83-4318-9d70-45ecad1771ae",
+              "@type": "WorkflowStep",
+              "name": "Get All Incident Secrets",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "GitGuardian Enterprise",
+                "config": "",
+                "params": {
+                  "search": "",
+                  "severity": "",
+                  "status": "",
+                  "created_at__current": "",
+                  "created_at__from": "",
+                  "created_at__to": "",
+                  "ordering": "",
+                  "page": "",
+                  "per_page": "",
+                  "additional_fields": {
+                    "assignee": "",
+                    "assignee__in": "",
+                    "assignee__nin": "",
+                    "created_at__delta": "",
+                    "created_at__tz": "",
+                    "current": "",
+                    "delta": "",
+                    "detector__in": "",
+                    "detector__nin": "",
+                    "display_name": "",
+                    "event_created_at__current": ""
+                  }
+                },
+                "version": "1.0.0",
+                "connector": "git-guardian-enterprise",
+                "operation": "get_all_incident_secrets",
+                "operationTitle": "Get All Incident Secrets"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieve a list of incident secrets from the GitGuardian Enterprise server using the specified filter parameters.",
+          "name": "Get All Incident Secrets",
+          "tag": "#GitGuardian Enterprise",
+          "recordTags": [
+            "Git",
+            "git-guardian-enterprise"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/9d3d2f69-8c84-4ee8-b30a-05bb512afa72",
+          "routes": [
+            {
+              "uuid": "ca1e45f1-319c-4ab0-85ee-f2e2f335ec40",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get All Incident Secrets",
+              "sourceStep": "/api/3/workflow_steps/9d3d2f69-8c84-4ee8-b30a-05bb512afa72",
+              "targetStep": "/api/3/workflow_steps/66ecbc58-9a83-4318-9d70-45ecad1771ae"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "74cc5256-b6ef-4958-8e3e-61e803b12f2d",
+          "collection": "/api/3/workflow_collections/621e1849-7331-4410-a560-f9d6016514c2",
+          "steps": [
+            {
+              "uuid": "5df0809f-9c88-4250-8d94-a866c860b380",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "d173b1a2-b6b6-4ccb-bb25-ccb8a94b0e5f",
+              "@type": "WorkflowStep",
+              "name": "Get Incident Secret Details",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "GitGuardian Enterprise",
+                "config": "",
+                "params": {
+                  "id": ""
+                },
+                "version": "1.0.0",
+                "connector": "git-guardian-enterprise",
+                "operation": "get_incident_secret_details",
+                "operationTitle": "Get Incident Secret Details"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieve specific incident secret details from the GitGuardian Enterprise server using the provided incident secret ID.",
+          "name": "Get Incident Secret Details",
+          "tag": "#GitGuardian Enterprise",
+          "recordTags": [
+            "Git",
+            "git-guardian-enterprise"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/5df0809f-9c88-4250-8d94-a866c860b380",
+          "routes": [
+            {
+              "uuid": "a94efac8-c24c-4515-8478-763ab34bbdc8",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Incident Secret Details",
+              "sourceStep": "/api/3/workflow_steps/5df0809f-9c88-4250-8d94-a866c860b380",
+              "targetStep": "/api/3/workflow_steps/d173b1a2-b6b6-4ccb-bb25-ccb8a94b0e5f"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "006dbf2d-b58e-466b-92eb-a535bb83bdcb",
+          "collection": "/api/3/workflow_collections/621e1849-7331-4410-a560-f9d6016514c2",
+          "steps": [
+            {
+              "uuid": "9a18b248-c6e2-4bf6-bc3d-57d08034a9ad",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "6c824301-f962-41d5-9809-cedb900c9ec0",
+              "@type": "WorkflowStep",
+              "name": "Update Incident Secret Status",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "GitGuardian Enterprise",
+                "config": "",
+                "params": {
+                  "id": "",
+                  "action": ""
+                },
+                "version": "1.0.0",
+                "connector": "git-guardian-enterprise",
+                "operation": "update_incident_secret_status",
+                "operationTitle": "Update Incident Secret Status"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Updates a specific incident secret details in the GitGuardian Enterprise server using the provided incident secret ID and status.",
+          "name": "Update Incident Secret Status",
+          "tag": "#GitGuardian Enterprise",
+          "recordTags": [
+            "Git",
+            "git-guardian-enterprise"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/9a18b248-c6e2-4bf6-bc3d-57d08034a9ad",
+          "routes": [
+            {
+              "uuid": "810d4756-d9db-456c-8958-03e069ebc4fe",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Update Incident Secret Status",
+              "sourceStep": "/api/3/workflow_steps/9a18b248-c6e2-4bf6-bc3d-57d08034a9ad",
+              "targetStep": "/api/3/workflow_steps/6c824301-f962-41d5-9809-cedb900c9ec0"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "ee185e82-781e-4905-833e-591ac9c0da62",
+          "collection": "/api/3/workflow_collections/621e1849-7331-4410-a560-f9d6016514c2",
+          "steps": [
+            {
+              "uuid": "7e5ca8a3-71b5-4f38-8f9d-e8f0d37199f6",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "43c095cc-4641-468f-b226-004da9c6a811",
+              "@type": "WorkflowStep",
+              "name": "Create Incident Secret Shared Link",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "GitGuardian Enterprise",
+                "config": "",
+                "params": {
+                  "id": ""
+                },
+                "version": "1.0.0",
+                "connector": "git-guardian-enterprise",
+                "operation": "create_incident_secret_shared_link",
+                "operationTitle": "Create Incident Secret Shared Link"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Create a public link for the incident to request feedback from anyone outside of the platform using the provided incident secret ID.",
+          "name": "Create Incident Secret Shared Link",
+          "tag": "#GitGuardian Enterprise",
+          "recordTags": [
+            "Git",
+            "git-guardian-enterprise"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/7e5ca8a3-71b5-4f38-8f9d-e8f0d37199f6",
+          "routes": [
+            {
+              "uuid": "71e3f4c1-0d7e-4b60-bcd7-7b4025ed9771",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Create Incident Secret Shared Link",
+              "sourceStep": "/api/3/workflow_steps/7e5ca8a3-71b5-4f38-8f9d-e8f0d37199f6",
+              "targetStep": "/api/3/workflow_steps/43c095cc-4641-468f-b226-004da9c6a811"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "d87eea91-4fc4-4796-8972-6db9c9f70ef0",
+          "collection": "/api/3/workflow_collections/621e1849-7331-4410-a560-f9d6016514c2",
+          "steps": [
+            {
+              "uuid": "ea61b2c8-8fdf-4271-9b1a-3bc150ba8a04",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "7bf25221-86b8-43f9-acf9-387b313eb2bf",
+              "@type": "WorkflowStep",
+              "name": "Rotate Incident Secret Shared Link",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "GitGuardian Enterprise",
+                "config": "",
+                "params": {
+                  "id": ""
+                },
+                "version": "1.0.0",
+                "connector": "git-guardian-enterprise",
+                "operation": "rotate_incident_secret_shared_link",
+                "operationTitle": "Rotate Incident Secret Shared Link"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Delete any of the previously created links, and create a fresh one using the provided incident secret ID.",
+          "name": "Rotate Incident Secret Shared Link",
+          "tag": "#GitGuardian Enterprise",
+          "recordTags": [
+            "Git",
+            "git-guardian-enterprise"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/ea61b2c8-8fdf-4271-9b1a-3bc150ba8a04",
+          "routes": [
+            {
+              "uuid": "af6137e4-9e2b-4091-94ef-8d2329bc8652",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Rotate Incident Secret Shared Link",
+              "sourceStep": "/api/3/workflow_steps/ea61b2c8-8fdf-4271-9b1a-3bc150ba8a04",
+              "targetStep": "/api/3/workflow_steps/7bf25221-86b8-43f9-acf9-387b313eb2bf"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "d1a68b6f-12ac-45ea-b68d-1232daf22982",
+          "collection": "/api/3/workflow_collections/621e1849-7331-4410-a560-f9d6016514c2",
+          "steps": [
+            {
+              "uuid": "00923412-6426-464a-b87b-963f6247a362",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "6b3c28d7-e214-4aaa-bc0a-f84347380d18",
+              "@type": "WorkflowStep",
+              "name": "Delete Incident Secret Shared Link",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "GitGuardian Enterprise",
+                "config": "",
+                "params": {
+                  "id": ""
+                },
+                "version": "1.0.0",
+                "connector": "git-guardian-enterprise",
+                "operation": "delete_incident_secret_shared_link",
+                "operationTitle": "Delete Incident Secret Shared Link"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Deactivate and delete a given shared link using the provided incident secret ID.",
+          "name": "Delete Incident Secret Shared Link",
+          "tag": "#GitGuardian Enterprise",
+          "recordTags": [
+            "Git",
+            "git-guardian-enterprise"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/00923412-6426-464a-b87b-963f6247a362",
+          "routes": [
+            {
+              "uuid": "f88db5eb-903f-4824-91c8-a7d9c91a2398",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Delete Incident Secret Shared Link",
+              "sourceStep": "/api/3/workflow_steps/00923412-6426-464a-b87b-963f6247a362",
+              "targetStep": "/api/3/workflow_steps/6b3c28d7-e214-4aaa-bc0a-f84347380d18"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "b450b8b8-f1be-4203-91d3-72fbfb984354",
+          "collection": "/api/3/workflow_collections/621e1849-7331-4410-a560-f9d6016514c2",
+          "steps": [
+            {
+              "uuid": "58bddd6b-5bff-49f4-89a8-e55d6505a983",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "68630bc9-df92-4f9b-b1f1-17526cbaed09",
+              "@type": "WorkflowStep",
+              "name": "Get All Incident Keywords",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "GitGuardian Enterprise",
+                "config": "",
+                "params": {
+                  "page": "",
+                  "per_page": ""
+                },
+                "version": "1.0.0",
+                "connector": "git-guardian-enterprise",
+                "operation": "get_all_incident_keywords",
+                "operationTitle": "Get All Incident Keywords"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieve a list of incident keywords from the GitGuardian Enterprise server using the specified filter parameters.",
+          "name": "Get All Incident Keywords",
+          "tag": "#GitGuardian Enterprise",
+          "recordTags": [
+            "Git",
+            "git-guardian-enterprise"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/58bddd6b-5bff-49f4-89a8-e55d6505a983",
+          "routes": [
+            {
+              "uuid": "459800cb-b4e1-44f9-84ca-5913f4a570bd",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get All Incident Keywords",
+              "sourceStep": "/api/3/workflow_steps/58bddd6b-5bff-49f4-89a8-e55d6505a983",
+              "targetStep": "/api/3/workflow_steps/68630bc9-df92-4f9b-b1f1-17526cbaed09"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "3b1fd1a2-4ffc-4aff-8be0-4063fc1332b9",
+          "collection": "/api/3/workflow_collections/621e1849-7331-4410-a560-f9d6016514c2",
+          "steps": [
+            {
+              "uuid": "ce611ada-c571-4e71-b7ed-9a51db7a1d44",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "ce4dd9fe-e906-4cef-aea1-9c62c1c1d068",
+              "@type": "WorkflowStep",
+              "name": "Get Incident Keyword Details",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "GitGuardian Enterprise",
+                "config": "",
+                "params": {
+                  "id": ""
+                },
+                "version": "1.0.0",
+                "connector": "git-guardian-enterprise",
+                "operation": "get_incident_keyword_details",
+                "operationTitle": "Get Incident Keyword Details"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieve specific incident keyword details from the GitGuardian Enterprise server based on the incident keyword ID specified.",
+          "name": "Get Incident Keyword Details",
+          "tag": "#GitGuardian Enterprise",
+          "recordTags": [
+            "Git",
+            "git-guardian-enterprise"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/ce611ada-c571-4e71-b7ed-9a51db7a1d44",
+          "routes": [
+            {
+              "uuid": "3191368f-b08e-42a8-aed1-3613650734eb",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Incident Keyword Details",
+              "sourceStep": "/api/3/workflow_steps/ce611ada-c571-4e71-b7ed-9a51db7a1d44",
+              "targetStep": "/api/3/workflow_steps/ce4dd9fe-e906-4cef-aea1-9c62c1c1d068"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "8b61be6c-3a76-427c-9790-e4fce46d1d53",
+          "collection": "/api/3/workflow_collections/621e1849-7331-4410-a560-f9d6016514c2",
+          "steps": [
+            {
+              "uuid": "ea1815c5-61eb-4072-90b9-c17305f54b01",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "5943d823-177e-43aa-9e0f-d46cc16f5eb6",
+              "@type": "WorkflowStep",
+              "name": "Update Incident Keyword Status",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "GitGuardian Enterprise",
+                "config": "",
+                "params": {
+                  "id": "",
+                  "action": ""
+                },
+                "version": "1.0.0",
+                "connector": "git-guardian-enterprise",
+                "operation": "update_incident_keyword_status",
+                "operationTitle": "Update Incident Keyword Status"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Updates a specific incident keyword details in the GitGuardian Enterprise server using the provided incident keyword ID and status.",
+          "name": "Update Incident Keyword Status",
+          "tag": "#GitGuardian Enterprise",
+          "recordTags": [
+            "Git",
+            "git-guardian-enterprise"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/ea1815c5-61eb-4072-90b9-c17305f54b01",
+          "routes": [
+            {
+              "uuid": "2fe648b9-24df-4941-abf2-5b32ca9d9f63",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Update Incident Keyword Status",
+              "sourceStep": "/api/3/workflow_steps/ea1815c5-61eb-4072-90b9-c17305f54b01",
+              "targetStep": "/api/3/workflow_steps/5943d823-177e-43aa-9e0f-d46cc16f5eb6"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "5ab30b0b-84b3-40bd-a257-fd83aa8dc5bc",
+          "collection": "/api/3/workflow_collections/621e1849-7331-4410-a560-f9d6016514c2",
+          "steps": [
+            {
+              "uuid": "affac139-8e83-4818-ad58-c1d3f52dff60",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "59b6dc58-3736-4580-ae1b-852ce26bf468",
+              "@type": "WorkflowStep",
+              "name": "Get Incident Secret Note",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "GitGuardian Enterprise",
+                "config": "",
+                "params": {
+                  "id": ""
+                },
+                "version": "1.0.0",
+                "connector": "git-guardian-enterprise",
+                "operation": "get_incident_secret_note",
+                "operationTitle": "Get Incident Secret Note"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieve specific incident secret note from the GitGuardian Enterprise server using the provided incident secret ID.",
+          "name": "Get Incident Secret Note",
+          "tag": "#GitGuardian Enterprise",
+          "recordTags": [
+            "Git",
+            "git-guardian-enterprise"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/affac139-8e83-4818-ad58-c1d3f52dff60",
+          "routes": [
+            {
+              "uuid": "bfff610c-5710-4390-91ec-b4d3e9107f19",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Incident Secret Note",
+              "sourceStep": "/api/3/workflow_steps/affac139-8e83-4818-ad58-c1d3f52dff60",
+              "targetStep": "/api/3/workflow_steps/59b6dc58-3736-4580-ae1b-852ce26bf468"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "97db0965-8e8c-4f74-96f1-5bbb827d9bec",
+          "collection": "/api/3/workflow_collections/621e1849-7331-4410-a560-f9d6016514c2",
+          "steps": [
+            {
+              "uuid": "51fbd1a2-d72c-48b2-9e86-4d78788df8e0",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "8d585bbb-5759-467f-bd80-1572560458ac",
+              "@type": "WorkflowStep",
+              "name": "Get Incident Keyword Note",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "GitGuardian Enterprise",
+                "config": "",
+                "params": {
+                  "id": ""
+                },
+                "version": "1.0.0",
+                "connector": "git-guardian-enterprise",
+                "operation": "get_incident_keyword_note",
+                "operationTitle": "Get Incident Keyword Note"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Retrieve specific incident keyword note from the GitGuardian Enterprise server based on the incident keyword ID specified.",
+          "name": "Get Incident Keyword Note",
+          "tag": "#GitGuardian Enterprise",
+          "recordTags": [
+            "Git",
+            "git-guardian-enterprise"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/51fbd1a2-d72c-48b2-9e86-4d78788df8e0",
+          "routes": [
+            {
+              "uuid": "91dacd6d-62ee-4879-9eeb-f98262f081aa",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Incident Keyword Note",
+              "sourceStep": "/api/3/workflow_steps/51fbd1a2-d72c-48b2-9e86-4d78788df8e0",
+              "targetStep": "/api/3/workflow_steps/8d585bbb-5759-467f-bd80-1572560458ac"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "a024bcf1-a5da-410d-b866-aa6ed48e1662",
+          "collection": "/api/3/workflow_collections/621e1849-7331-4410-a560-f9d6016514c2",
+          "steps": [
+            {
+              "uuid": "2cd9c90b-dadf-46a2-9646-b3e23e965e0c",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                }
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62"
+            },
+            {
+              "uuid": "162a9225-b1ca-4028-a50e-0580d865d0ef",
+              "@type": "WorkflowStep",
+              "name": "Execute an API Request",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "GitGuardian Enterprise",
+                "config": "",
+                "params": {
+                  "method": "",
+                  "endpoint": "",
+                  "query_params": "",
+                  "payload": ""
+                },
+                "version": "1.0.0",
+                "connector": "git-guardian-enterprise",
+                "operation": "execute_an_api_call",
+                "operationTitle": "Execute an API Request"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "triggerLimit": null,
+          "description": "Sends an API request to an API endpoint based on specified HTTP method, endpoint, and other input parameters that you have specified, enabling flexible API interactions tailored to user needs.",
+          "name": "Execute an API Request",
+          "tag": "#GitGuardian Enterprise",
+          "recordTags": [
+            "Git",
+            "git-guardian-enterprise"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/2cd9c90b-dadf-46a2-9646-b3e23e965e0c",
+          "routes": [
+            {
+              "uuid": "2fb94078-6814-437f-b0a4-ed77715cffeb",
+              "@type": "WorkflowRoute",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Execute an API Request",
+              "sourceStep": "/api/3/workflow_steps/2cd9c90b-dadf-46a2-9646-b3e23e965e0c",
+              "targetStep": "/api/3/workflow_steps/162a9225-b1ca-4028-a50e-0580d865d0ef"
+            }
+          ]
+        }
+      ],
+      "name": "Sample - GitGuardian Enterprise - 1.0.0",
+      "description": "GitGuardian Enterprise is a security platform designed to detect, monitor, and remediate secrets (like API keys, passwords, and tokens) and sensitive data exposed in source code, CI/CD pipelines, containers, and developer environments.",
+      "visible": true,
+      "recordTags": [
+        "Git",
+        "git-guardian-enterprise"
+      ]
+    }
+  ]
+}
